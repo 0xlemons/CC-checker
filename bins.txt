@@ -3,3 +3,4 @@
 
 example BINS
 ONLY ADD BINS NOT FULL CC
+1-6 numbers wrong im pretty sure
