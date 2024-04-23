@@ -8,7 +8,7 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 file = open('bins.txt', 'r+')
 data = file.readlines()
 for bin in data:
-    bins.append(bin.strip())  # Remove newline characters
+    bins.append(bin.strip())  
 file.close()
 
 def main():
