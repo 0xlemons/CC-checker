@@ -23,14 +23,14 @@ def main():
         digit = str(cc_number)
         if digit[0] == '4':
             brand = 'Visa'
-        elif digit[:3] == '34' or digit[:3] == '37':
+        elif digit[:2] == '34' or digit[:2] == '37':
             brand = 'American Express'
         elif digit[:4] == '6011' or digit[:2] == '65' or (digit[:6] >= '622126' and digit[:6] <= '622925') or (digit[:3] >=  '644' and digit[:3] <= '649'):
             brand = 'Discover Card'
         elif digit[:2] >= '51' and digit[:2] <= '55':
             brand = 'Mastercard'
         else:
-            brand = 'Unkown Brand'
+            brand = 'Unknown Brand'
         print(f"[+]: Valid Credit Card Number ({cc_number})")
         with open("valid.txt", 'a+') as f:
             f.write(f"{cc_number} : {brand}\n")
