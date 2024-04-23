@@ -1,13 +1,14 @@
 from Luhn import Luhn
 import random, time, threading
-
+import faker
+from faker import Faker
+fake = Faker()
 bins = []
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 file = open('bins.txt', 'r+')
 data = file.readlines()
 for bin in data:
-    bins.append(bin.strip()) 
+    bins.append(bin.strip())  # Remove newline characters
 file.close()
 
 def main():
@@ -30,10 +31,16 @@ def main():
         elif digit[:2] >= '51' and digit[:2] <= '55':
             brand = 'Mastercard'
         else:
-            brand = 'Unknown Brand'
+            brand = 'Unkown Brand'
+        fname = fake.first_name()
+        lname = fake.last_name()
+        address = fake.address()
+        cvv = random.randint(100, 999)
+        exp_month = random.randint(1, 12)
+        exp_yr = random.randint(25, 29)
         print(f"[+]: Valid Credit Card Number ({cc_number})")
         with open("valid.txt", 'a+') as f:
-            f.write(f"{cc_number} : {brand}\n")
+            f.write(f"{cc_number} : {brand} : {fname} {lname} : {cvv} : {exp_month}/{exp_yr} : {address}\n")
     else:
         print(f"[-]: Invalid Credit Card Number ({cc_number})")
     time.sleep(random.uniform(0.1, 0.2))
